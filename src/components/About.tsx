@@ -1,3 +1,5 @@
+import Reveal from "./Reveal";
+
 const facts = [
   {
     label: "Education",
@@ -24,7 +26,7 @@ export default function About() {
       className="min-h-screen scroll-mt-28 bg-white/[0.015] px-6 py-32 md:px-10 lg:px-8"
     >
       <div className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(400px,1.1fr)] lg:gap-24">
-        <div className="lg:sticky lg:top-36">
+        <Reveal className="lg:sticky lg:top-36">
           <p className="text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
             About me
           </p>
@@ -33,9 +35,9 @@ export default function About() {
             I like understanding what happens{" "}
             <span className="text-accent">beneath the abstraction.</span>
           </h2>
-        </div>
+        </Reveal>
 
-        <div className="lg:pt-12">
+        <Reveal className="lg:pt-12">
           <div className="border-b border-line pb-10">
             <p className="mb-6 text-[clamp(1.2rem,1.8vw,1.45rem)] leading-8 text-white">
               I&apos;m a computer science student at KAIST with experience
@@ -71,7 +73,7 @@ export default function About() {
               </div>
             ))}
           </dl>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

@@ -1,4 +1,5 @@
 import { skillGroups } from "../data/skills";
+import Reveal from "./Reveal";
 
 export default function TechStack() {
   return (
@@ -7,7 +8,7 @@ export default function TechStack() {
       className="min-h-screen scroll-mt-28 px-6 py-32 md:px-10 lg:px-8"
     >
       <div className="mx-auto max-w-7xl">
-        <div className="mb-14 max-w-4xl">
+        <Reveal className="mb-14 max-w-4xl">
           <p className="text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
             Capabilities
           </p>
@@ -20,7 +21,7 @@ export default function TechStack() {
             My experience spans product interfaces, backend services, computer
             systems, security research, and local AI applications.
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-12">
           {skillGroups.map((group, index) => {
@@ -28,40 +29,38 @@ export default function TechStack() {
               index < 2 ? "lg:col-span-6" : "lg:col-span-4";
 
             return (
-              <article
-                className={[
-                  "group min-h-0 rounded-2xl border border-line bg-panel p-7 transition duration-200",
-                  "hover:-translate-y-1 hover:border-line-strong hover:bg-panel-raised",
-                  "md:col-span-1 lg:min-h-68",
-                  desktopWidth,
-                ].join(" ")}
+              <Reveal
+                className={`md:col-span-1 ${desktopWidth}`}
+                delay={index * 0.08}
                 key={group.category}
               >
-                <header className="grid grid-cols-[auto_1fr_auto] items-baseline gap-4 border-b border-line pb-6">
-                  <span className="text-xs font-extrabold text-accent">
-                    {String(index + 1).padStart(2, "0")}
-                  </span>
+                <article className="group h-full min-h-0 rounded-2xl border border-line bg-panel p-7 transition duration-200 hover:-translate-y-1 hover:border-line-strong hover:bg-panel-raised lg:min-h-68">
+                  <header className="grid grid-cols-[auto_1fr_auto] items-baseline gap-4 border-b border-line pb-6">
+                    <span className="text-xs font-extrabold text-accent">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                  <h3 className="m-0 text-lg font-extrabold tracking-tight">
-                    {group.category}
-                  </h3>
+                    <h3 className="m-0 text-lg font-extrabold tracking-tight">
+                      {group.category}
+                    </h3>
 
-                  <small className="text-xs whitespace-nowrap text-muted">
-                    {group.skills.length} skills
-                  </small>
-                </header>
+                    <small className="text-xs whitespace-nowrap text-muted">
+                      {group.skills.length} skills
+                    </small>
+                  </header>
 
-                <ul className="mt-6 flex list-none flex-wrap content-start gap-2 p-0">
-                  {group.skills.map((skill) => (
-                    <li
-                      className="rounded-lg border border-line bg-black/15 px-3 py-2 text-sm font-semibold text-copy"
-                      key={skill}
-                    >
-                      {skill}
-                    </li>
-                  ))}
-                </ul>
-              </article>
+                  <ul className="mt-6 flex list-none flex-wrap content-start gap-2 p-0">
+                    {group.skills.map((skill) => (
+                      <li
+                        className="rounded-lg border border-line bg-black/15 px-3 py-2 text-sm font-semibold text-copy"
+                        key={skill}
+                      >
+                        {skill}
+                      </li>
+                    ))}
+                  </ul>
+                </article>
+              </Reveal>
             );
           })}
         </div>

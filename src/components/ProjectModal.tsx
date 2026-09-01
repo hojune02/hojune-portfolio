@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react";
 import type { MouseEvent } from "react";
+import { motion, useReducedMotion } from "motion/react";
 import type { Project } from "../data/projects";
 
 type ProjectModalProps = {
@@ -12,6 +13,8 @@ export default function ProjectModal({
   onClose,
 }: ProjectModalProps) {
   const closeButtonRef = useRef<HTMLButtonElement>(null);
+
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
@@ -39,16 +42,43 @@ export default function ProjectModal({
   }
 
   return (
-    <div
-      className="fixed inset-0 z-100 overflow-y-auto bg-black/85 p-0 backdrop-blur-sm md:p-8"
-      onMouseDown={handleBackdropClick}
+    <motion.div
+    className="fixed inset-0 z-100 overflow-y-auto bg-black/85 p-0 backdrop-blur-sm md:p-8"
+    initial={shouldReduceMotion ? false : { opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.2 }}
+    onMouseDown={handleBackdropClick}
     >
-      <article
+        <motion.article
         className="relative mx-auto min-h-screen w-full border-line bg-panel px-6 py-20 md:min-h-0 md:max-w-4xl md:rounded-3xl md:border md:p-14"
+        initial={
+            shouldReduceMotion
+            ? false
+            : {
+                opacity: 0,
+                y: 30,
+                scale: 0.97,
+                }
+        }
+        animate={{
+            opacity: 1,
+            y: 0,
+            scale: 1,
+        }}
+        exit={{
+            opacity: 0,
+            y: 20,
+            scale: 0.98,
+        }}
+        transition={{
+            duration: 0.28,
+            ease: "easeOut",
+        }}
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-modal-title"
-      >
+        >
         <button
           ref={closeButtonRef}
           className="absolute top-5 right-5 grid size-12 cursor-pointer place-items-center rounded-full border border-line-strong bg-transparent text-3xl leading-none transition hover:border-accent hover:text-accent"
@@ -142,7 +172,7 @@ export default function ProjectModal({
             )}
           </div>
         )}
-      </article>
-    </div>
+      </motion.article>
+    </motion.div>
   );
 }

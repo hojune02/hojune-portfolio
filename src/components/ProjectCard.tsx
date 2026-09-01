@@ -22,7 +22,7 @@ export default function ProjectCard({
   const visualTheme = visualThemes[(number - 1) % visualThemes.length];
 
   return (
-    <article className="group overflow-hidden rounded-3xl border border-line bg-panel transition duration-300 hover:-translate-y-1.5 hover:border-line-strong hover:shadow-2xl hover:shadow-black/30">
+    <article className="group h-fulloverflow-hidden rounded-3xl border border-line bg-panel transition duration-300 hover:-translate-y-1.5 hover:border-line-strong hover:shadow-2xl hover:shadow-black/30">
       <div className="flex items-center justify-between px-6 py-5">
         <span className="font-extrabold text-accent">{formattedNumber}</span>
 
@@ -39,6 +39,8 @@ export default function ProjectCard({
             className="absolute inset-0 size-full object-cover transition duration-500 group-hover:scale-105"
             src={project.image}
             alt={`${project.title} interface`}
+            loading="lazy"
+            decoding="async"
           />
         ) : (
           <>

@@ -63,159 +63,58 @@
  * absolute orbital positioning is clearer here than in long arbitrary classes.
  */
 
-.hero-orbit {
-  position: relative;
+ .starfield {
+  position: absolute;
+  z-index: 0;
+  inset: 0;
 
-  width: min(82vw, 350px);
-  aspect-ratio: 1;
-  border: 1px solid var(--color-line);
+  overflow: hidden;
+  pointer-events: none;
+
+  mask-image: linear-gradient(
+    to bottom,
+    transparent,
+    black 12%,
+    black 82%,
+    transparent
+  );
+}
+
+.starfield__star {
+  position: absolute;
   border-radius: 50%;
 
-  background:
-    radial-gradient(
-      circle,
-      rgb(255 71 126 / 14%),
-      transparent 25%
-    ),
-    rgb(255 255 255 / 1%);
+  background: white;
+  box-shadow: 0 0 8px rgb(255 255 255 / 55%);
 
-  box-shadow:
-    inset 0 0 80px rgb(255 255 255 / 2%),
-    0 0 100px rgb(255 71 126 / 6%);
+  animation-name: star-twinkle;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
 }
 
-.hero-orbit::before,
-.hero-orbit::after {
-  position: absolute;
-  top: 50%;
-  left: 50%;
+@keyframes star-twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: scale(0.75);
+  }
 
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-
-  background: var(--color-accent);
-  box-shadow: 0 0 22px var(--color-accent);
-
-  content: "";
-}
-
-.hero-orbit::before {
-  transform: translate(-50%, -50%) translateX(50%);
-}
-
-.hero-orbit::after {
-  transform: translate(-50%, -50%) translateX(-50%);
-}
-
-.hero-orbit__ring {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-
-  border: 1px solid rgb(255 255 255 / 10%);
-  border-radius: 50%;
-
-  transform: translate(-50%, -50%);
-}
-
-.hero-orbit__ring--outer {
-  width: 78%;
-  height: 78%;
-}
-
-.hero-orbit__ring--inner {
-  width: 45%;
-  height: 45%;
-}
-
-.hero-orbit__core {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  font-size: 1.15rem;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: 0.16em;
-}
-
-.hero-orbit__core small {
-  margin-top: 0.5rem;
-
-  color: var(--color-muted);
-  font-size: 0.55rem;
-  font-weight: 600;
-  white-space: nowrap;
-  letter-spacing: 0.12em;
-}
-
-.hero-orbit__tech {
-  position: absolute;
-
-  padding: 0.45rem 0.7rem;
-  border: 1px solid var(--color-line);
-  border-radius: 999px;
-
-  color: var(--color-copy);
-  background: var(--color-page-soft);
-  box-shadow: 0 8px 30px rgb(0 0 0 / 35%);
-
-  font-size: 0.8rem;
-  font-weight: 700;
-}
-
-.hero-orbit__tech--1 {
-  top: 6%;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.hero-orbit__tech--2 {
-  top: 28%;
-  right: -5%;
-}
-
-.hero-orbit__tech--3 {
-  right: 1%;
-  bottom: 17%;
-}
-
-.hero-orbit__tech--4 {
-  bottom: 4%;
-  left: 28%;
-}
-
-.hero-orbit__tech--5 {
-  top: 35%;
-  left: -5%;
+  50% {
+    opacity: 0.9;
+    transform: scale(1.25);
+  }
 }
 
 @media (min-width: 48rem) {
-  .hero-orbit {
-    width: min(70vw, 440px);
-  }
 }
 
 @media (min-width: 64rem) {
-  .hero-orbit {
-    width: min(34vw, 440px);
-  }
 }
 
 @media (min-width: 64rem) and (max-height: 900px) {
   .hero-layout {
     padding-top: 7.5rem;
     padding-bottom: 3rem;
-  }
-
-  .hero-orbit {
-    width: min(32vw, 410px);
   }
 }
 
@@ -228,6 +127,161 @@
   *::before,
   *::after {
     scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+.cloud-transition {
+  position: relative;
+
+  height: clamp(7rem, 13vw, 11rem);
+  overflow: hidden;
+
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    rgb(255 255 255 / 1.5%)
+  );
+}
+
+.cloud-transition__glow {
+  position: absolute;
+  bottom: -7rem;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: min(80vw, 70rem);
+  height: 12rem;
+  border-radius: 50%;
+
+  background: rgb(255 71 126 / 8%);
+  filter: blur(70px);
+}
+
+.cloud-transition__cloud {
+  position: absolute;
+  bottom: -55%;
+
+  display: block;
+
+  border: 1px solid rgb(255 255 255 / 5%);
+  border-radius: 50% 50% 0 0;
+
+  background: #0b0b10;
+  box-shadow:
+    inset 0 1px rgb(255 255 255 / 4%),
+    0 -20px 60px rgb(255 71 126 / 3%);
+}
+
+.cloud-transition__cloud--1 {
+  left: -8%;
+  width: 30%;
+  height: 120%;
+}
+
+.cloud-transition__cloud--2 {
+  left: 13%;
+  width: 26%;
+  height: 92%;
+}
+
+.cloud-transition__cloud--3 {
+  left: 31%;
+  width: 30%;
+  height: 125%;
+}
+
+.cloud-transition__cloud--4 {
+  left: 52%;
+  width: 25%;
+  height: 90%;
+}
+
+.cloud-transition__cloud--5 {
+  right: 5%;
+  width: 27%;
+  height: 115%;
+}
+
+.cloud-transition__cloud--6 {
+  right: -12%;
+  width: 28%;
+  height: 86%;
+}
+
+.custom-cursor {
+  position: fixed;
+  z-index: 200;
+  top: 0;
+  left: 0;
+
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+
+  opacity: 0;
+  background: rgb(255 71 126 / 22%);
+  box-shadow: 0 0 20px rgb(255 71 126 / 25%);
+
+  pointer-events: none;
+  will-change: transform;
+
+  transition:
+    width 180ms ease,
+    height 180ms ease,
+    opacity 180ms ease,
+    background-color 180ms ease;
+}
+
+.custom-cursor[data-visible="true"] {
+  opacity: 0.8;
+}
+
+.custom-cursor[data-interactive="true"] {
+  width: 42px;
+  height: 42px;
+  background: rgb(255 71 126 / 10%);
+}
+
+@media (pointer: coarse) {
+  .custom-cursor {
+    display: none;
+  }
+}
+
+@media (pointer: fine) {
+  html.custom-cursor-enabled,
+  html.custom-cursor-enabled * {
+    cursor: none !important;
+  }
+}
+
+@keyframes technology-float {
+  0%,
+  100% {
+    translate: 0 0;
+  }
+
+  50% {
+    translate: 0 -8px;
+  }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+
     transition-duration: 0.01ms !important;
   }
 }

@@ -1,3 +1,7 @@
+import { motion, useReducedMotion } from "motion/react";
+import Starfield from "./Starfield";
+import TechConstellation from "./TechConstellation";
+
 const socialLinks = [
   {
     label: "GitHub",
@@ -9,21 +13,33 @@ const socialLinks = [
   },
 ];
 
-const technologies = [
-  "React",
-  "TypeScript",
-  "Node.js",
-  "Python",
-  "Linux",
-];
-
 export default function Hero() {
+  const shouldReduceMotion = useReducedMotion();
   return (
     <section
       id="home"
       className="hero-layout relative mx-auto grid min-h-svh max-w-7xl scroll-mt-28 grid-cols-1 items-center gap-12 px-6 pt-36 pb-20 md:px-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.75fr)] lg:gap-20 lg:px-8 xl:px-0"
     >
-      <div className="max-w-3xl">
+        <Starfield />
+      <motion.div
+        className="relative z-10 max-w-3xl"
+        initial={
+            shouldReduceMotion
+            ? false
+            : {
+                opacity: 0,
+                y: 32,
+                }
+        }
+        animate={{
+            opacity: 1,
+            y: 0,
+        }}
+        transition={{
+            duration: 0.8,
+            ease: "easeOut",
+        }}
+        >
         <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-line bg-white/3 px-3 py-2 text-xs font-semibold text-muted">
           <span className="size-2 rounded-full bg-emerald-300 shadow-[0_0_0_5px_rgb(110_231_183_/_10%)]" />
           Open to software engineering opportunities
@@ -93,28 +109,32 @@ export default function Hero() {
             </a>
           </li>
         </ul>
-      </div>
+      </motion.div>
 
-      <div className="grid min-w-0 place-items-center">
-        <div className="hero-orbit" aria-hidden="true">
-          <div className="hero-orbit__ring hero-orbit__ring--outer" />
-          <div className="hero-orbit__ring hero-orbit__ring--inner" />
-
-          <span className="hero-orbit__core">
-            Build
-            <small>Explore · Learn</small>
-          </span>
-
-          {technologies.map((technology, index) => (
-            <span
-              className={`hero-orbit__tech hero-orbit__tech--${index + 1}`}
-              key={technology}
-            >
-              {technology}
-            </span>
-          ))}
-        </div>
-      </div>
+      <motion.div
+        className="relative z-10 grid min-w-0 place-items-center"
+        initial={
+            shouldReduceMotion
+            ? false
+            : {
+                opacity: 0,
+                scale: 0.88,
+                rotate: -4,
+                }
+        }
+        animate={{
+            opacity: 1,
+            scale: 1,
+            rotate: 0,
+        }}
+        transition={{
+            duration: 1,
+            delay: 0.2,
+            ease: "easeOut",
+        }}
+        >
+        <TechConstellation />
+      </motion.div>
     </section>
   );
 }
