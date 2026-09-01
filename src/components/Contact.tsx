@@ -36,7 +36,7 @@ export default function Contact() {
             Available for opportunities
           </span> */}
 
-          <h3 className="mt-7 text-3xl font-extrabold tracking-[-0.04em]">
+          <h3 className="text-3xl font-extrabold tracking-[-0.04em]">
             Start a conversation.
           </h3>
 
