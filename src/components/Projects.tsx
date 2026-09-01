@@ -9,27 +9,36 @@ export default function Projects() {
     useState<Project | null>(null);
 
   return (
-    <section id="projects" className="section projects">
-      <div className="section__heading">
-        <p className="section__label">Selected work</p>
+    <section
+      id="projects"
+      className="min-h-screen scroll-mt-28 bg-white/[0.015] px-6 py-32 md:px-10 lg:px-8"
+    >
+      <div className="mx-auto max-w-7xl">
+        <div className="mb-14 max-w-4xl">
+          <p className="text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
+            Selected work
+          </p>
 
-        <h2>Projects and research</h2>
+          <h2 className="mt-4 text-[clamp(2.8rem,7vw,5rem)] leading-none font-[850] tracking-[-0.055em]">
+            Projects and research.
+          </h2>
 
-        <p>
-          A selection of work spanning artificial intelligence, systems,
-          cybersecurity research, and frontend development.
-        </p>
-      </div>
+          <p className="mt-6 max-w-2xl text-lg leading-8 text-muted">
+            Work spanning artificial intelligence, systems, cybersecurity
+            research, and frontend development.
+          </p>
+        </div>
 
-      <div className="projects__grid">
-        {projects.map((project, index) => (
-          <ProjectCard
-            key={project.id}
-            project={project}
-            number={index + 1}
-            onSelect={setSelectedProject}
-          />
-        ))}
+        <div className="grid grid-cols-1 gap-7 lg:grid-cols-2">
+          {projects.map((project, index) => (
+            <ProjectCard
+              key={project.id}
+              project={project}
+              number={index + 1}
+              onSelect={setSelectedProject}
+            />
+          ))}
+        </div>
       </div>
 
       {selectedProject && (

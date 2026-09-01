@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import type { MouseEvent } from "react";
 import type { Project } from "../data/projects";
 
@@ -11,6 +11,8 @@ export default function ProjectModal({
   project,
   onClose,
 }: ProjectModalProps) {
+  const closeButtonRef = useRef<HTMLButtonElement>(null);
+
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
 
@@ -22,6 +24,7 @@ export default function ProjectModal({
 
     document.body.style.overflow = "hidden";
     window.addEventListener("keydown", handleKeyDown);
+    closeButtonRef.current?.focus();
 
     return () => {
       document.body.style.overflow = previousOverflow;
@@ -37,17 +40,18 @@ export default function ProjectModal({
 
   return (
     <div
-      className="modal-backdrop"
+      className="fixed inset-0 z-100 overflow-y-auto bg-black/85 p-0 backdrop-blur-sm md:p-8"
       onMouseDown={handleBackdropClick}
     >
       <article
-        className="project-modal"
+        className="relative mx-auto min-h-screen w-full border-line bg-panel px-6 py-20 md:min-h-0 md:max-w-4xl md:rounded-3xl md:border md:p-14"
         role="dialog"
         aria-modal="true"
         aria-labelledby="project-modal-title"
       >
         <button
-          className="project-modal__close"
+          ref={closeButtonRef}
+          className="absolute top-5 right-5 grid size-12 cursor-pointer place-items-center rounded-full border border-line-strong bg-transparent text-3xl leading-none transition hover:border-accent hover:text-accent"
           type="button"
           onClick={onClose}
           aria-label="Close project details"
@@ -55,43 +59,69 @@ export default function ProjectModal({
           ×
         </button>
 
-        <p className="section__label">{project.category}</p>
+        <p className="text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
+          {project.category}
+        </p>
 
-        <h2 id="project-modal-title">{project.title}</h2>
+        <h2
+          id="project-modal-title"
+          className="mt-4 max-w-3xl pr-12 text-[clamp(2.8rem,7vw,5rem)] leading-none font-[850] tracking-[-0.055em]"
+        >
+          {project.title}
+        </h2>
 
-        <p className="project-modal__summary">{project.summary}</p>
+        <p className="mt-6 max-w-3xl text-lg leading-8 text-muted">
+          {project.summary}
+        </p>
 
         <ul
-          className="project-card__technologies"
+          className="mt-6 flex list-none flex-wrap gap-2 p-0"
           aria-label={`${project.title} technologies`}
         >
           {project.technologies.map((technology) => (
-            <li key={technology}>{technology}</li>
+            <li
+              className="rounded-full border border-line px-3 py-1.5 text-xs font-semibold text-copy"
+              key={technology}
+            >
+              {technology}
+            </li>
           ))}
         </ul>
 
-        <div className="project-modal__details">
+        <div className="mt-12 grid gap-9">
           <section>
-            <h3>The problem</h3>
-            <p>{project.details.problem}</p>
+            <h3 className="mb-3 text-xs font-extrabold tracking-[0.12em] text-accent uppercase">
+              The problem
+            </h3>
+            <p className="m-0 leading-8 text-copy">
+              {project.details.problem}
+            </p>
           </section>
 
           <section>
-            <h3>What I built</h3>
-            <p>{project.details.solution}</p>
+            <h3 className="mb-3 text-xs font-extrabold tracking-[0.12em] text-accent uppercase">
+              What I built
+            </h3>
+            <p className="m-0 leading-8 text-copy">
+              {project.details.solution}
+            </p>
           </section>
 
           <section>
-            <h3>Engineering challenge</h3>
-            <p>{project.details.challenge}</p>
+            <h3 className="mb-3 text-xs font-extrabold tracking-[0.12em] text-accent uppercase">
+              Engineering challenge
+            </h3>
+            <p className="m-0 leading-8 text-copy">
+              {project.details.challenge}
+            </p>
           </section>
         </div>
 
         {(project.github || project.demo) && (
-          <div className="project-modal__links">
+          <div className="mt-12 flex flex-wrap gap-3">
             {project.github && (
               <a
-                className="button button--primary"
+                className="inline-flex min-h-12 items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-extrabold text-page no-underline transition hover:-translate-y-0.5 hover:bg-accent-light"
                 href={project.github}
                 target="_blank"
                 rel="noreferrer"
@@ -102,7 +132,7 @@ export default function ProjectModal({
 
             {project.demo && (
               <a
-                className="button button--secondary"
+                className="inline-flex min-h-12 items-center justify-center rounded-full border border-line-strong px-6 py-3 text-sm font-extrabold no-underline transition hover:-translate-y-0.5 hover:border-accent"
                 href={project.demo}
                 target="_blank"
                 rel="noreferrer"

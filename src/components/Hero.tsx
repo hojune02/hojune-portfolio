@@ -9,57 +9,111 @@ const socialLinks = [
   },
 ];
 
+const technologies = [
+  "React",
+  "TypeScript",
+  "Node.js",
+  "Python",
+  "Linux",
+];
+
 export default function Hero() {
   return (
-    <section id="home" className="section hero">
-      <div className="hero__content">
-        <p className="hero__eyebrow">Hello, I&apos;m</p>
+    <section
+      id="home"
+      className="hero-layout relative mx-auto grid min-h-svh max-w-7xl scroll-mt-28 grid-cols-1 items-center gap-12 px-6 pt-36 pb-20 md:px-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.75fr)] lg:gap-20 lg:px-8 xl:px-0"
+    >
+      <div className="max-w-3xl">
+        <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-line bg-white/3 px-3 py-2 text-xs font-semibold text-muted">
+          <span className="size-2 rounded-full bg-emerald-300 shadow-[0_0_0_5px_rgb(110_231_183_/_10%)]" />
+          Open to software engineering opportunities
+        </div>
 
-        <h1>Hojune Kim.</h1>
-
-        <h2>Software engineer exploring AI, systems, and cybersecurity.</h2>
-
-        <p className="hero__description">
-          I&apos;m a computer science student at KAIST who enjoys understanding
-          how technology works beneath the abstraction—and turning that
-          understanding into working software.
+        <p className="mb-4 text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
+          Hello, I&apos;m
         </p>
 
-        <div className="hero__actions">
-          <a className="button button--primary" href="#projects">
-            View my work
+        <h1 className="m-0 text-[clamp(4rem,17vw,5.5rem)] leading-[0.83] font-black tracking-[-0.075em] lg:text-[clamp(4rem,7vw,7rem)]">
+          Hojune
+          <br />
+          Kim<span className="text-accent">.</span>
+        </h1>
+
+        <h2 className="mt-8 mb-5 max-w-2xl text-[clamp(1.35rem,2.2vw,2rem)] leading-[1.35] font-medium tracking-[-0.025em] text-copy">
+          Building across <strong className="text-white">AI</strong>,{" "}
+          <strong className="text-white">systems</strong>, and{" "}
+          <strong className="text-white">cybersecurity</strong>.
+        </h2>
+
+        <p className="m-0 max-w-xl text-[clamp(1rem,1.2vw,1.1rem)] leading-7 text-muted">
+          I&apos;m a computer science student at KAIST who enjoys understanding
+          technology beneath the abstraction—and turning that understanding
+          into reliable software.
+        </p>
+
+        <div className="mt-8 flex flex-wrap gap-3">
+          <a
+            className="inline-flex min-h-12 items-center justify-center rounded-full border border-transparent bg-accent px-6 py-3 text-sm font-extrabold text-page no-underline transition hover:-translate-y-0.5 hover:bg-accent-light"
+            href="#projects"
+          >
+            Explore my work
           </a>
 
-          <a className="button button--secondary" href="#contact">
+          <a
+            className="inline-flex min-h-12 items-center justify-center rounded-full border border-line-strong bg-white/2 px-6 py-3 text-sm font-extrabold text-white no-underline transition hover:-translate-y-0.5 hover:border-accent"
+            href="#contact"
+          >
             Contact me
           </a>
         </div>
 
-        <ul className="hero__socials" aria-label="Social links">
+        <ul
+          className="mt-8 flex list-none flex-wrap gap-5 p-0"
+          aria-label="Social links"
+        >
           {socialLinks.map((link) => (
             <li key={link.label}>
               <a
+                className="text-sm font-semibold text-muted no-underline transition hover:text-accent"
                 href={link.href}
                 target="_blank"
                 rel="noreferrer"
               >
-                {link.label}
+                {link.label} ↗
               </a>
             </li>
           ))}
 
           <li>
-            <a href="mailto:hojunekim1202@gmail.com">Email</a>
+            <a
+              className="text-sm font-semibold text-muted no-underline transition hover:text-accent"
+              href="mailto:hojunekim1202@gmail.com"
+            >
+              Email ↗
+            </a>
           </li>
         </ul>
       </div>
 
-      <div className="hero__visual" aria-hidden="true">
-        <p>React</p>
-        <p>TypeScript</p>
-        <p>Node.js</p>
-        <p>Python</p>
-        <p>Linux</p>
+      <div className="grid min-w-0 place-items-center">
+        <div className="hero-orbit" aria-hidden="true">
+          <div className="hero-orbit__ring hero-orbit__ring--outer" />
+          <div className="hero-orbit__ring hero-orbit__ring--inner" />
+
+          <span className="hero-orbit__core">
+            Build
+            <small>Explore · Learn</small>
+          </span>
+
+          {technologies.map((technology, index) => (
+            <span
+              className={`hero-orbit__tech hero-orbit__tech--${index + 1}`}
+              key={technology}
+            >
+              {technology}
+            </span>
+          ))}
+        </div>
       </div>
     </section>
   );

@@ -11,6 +11,7 @@ export type Project = {
   summary: string;
   technologies: string[];
   details: ProjectDetails;
+  image?: string;
   github?: string;
   demo?: string;
 };
