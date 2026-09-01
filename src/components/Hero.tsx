@@ -39,10 +39,10 @@ export default function Hero() {
             ease: "easeOut",
         }}
         >
-        <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-line bg-white/3 px-3 py-2 text-xs font-semibold text-muted">
+        {/* <div className="mb-10 inline-flex items-center gap-2 rounded-full border border-line bg-white/3 px-3 py-2 text-xs font-semibold text-muted">
           <span className="size-2 rounded-full bg-emerald-300 shadow-[0_0_0_5px_rgb(110_231_183_/_10%)]" />
           Open to software engineering opportunities
-        </div>
+        </div> */}
 
         <p className="mb-4 text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
           Hello, I&apos;m

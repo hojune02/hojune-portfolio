@@ -31,10 +31,10 @@ export default function Contact() {
         </div>
 
         <div className="rounded-3xl border border-line bg-panel/80 p-7 shadow-2xl shadow-black/25 backdrop-blur-md md:p-9">
-          <span className="inline-flex items-center gap-2 rounded-full border border-line bg-white/3 px-3 py-2 text-xs font-bold text-muted">
+          {/* <span className="inline-flex items-center gap-2 rounded-full border border-line bg-white/3 px-3 py-2 text-xs font-bold text-muted">
             <span className="size-2 rounded-full bg-emerald-300 shadow-[0_0_0_5px_rgb(110_231_183_/_10%)]" />
             Available for opportunities
-          </span>
+          </span> */}
 
           <h3 className="mt-7 text-3xl font-extrabold tracking-[-0.04em]">
             Start a conversation.
