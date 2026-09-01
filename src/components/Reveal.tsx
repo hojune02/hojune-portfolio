@@ -26,7 +26,6 @@ export default function Reveal({
         shouldReduceMotion
           ? {
             opacity: 0,
-            y:distance,
           }
           : {
               opacity: 0,
