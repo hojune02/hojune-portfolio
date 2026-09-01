@@ -1,4 +1,5 @@
 import Reveal from "./Reveal";
+import ArrowUpRightIcon from "./icons/ArrowUpRightIcon";
 
 const contactLinks = [
   {
@@ -50,7 +51,7 @@ export default function Contact() {
             href="mailto:hojunekim1202@gmail.com"
           >
             <span>Email me</span>
-            <span aria-hidden="true">↗</span>
+            <ArrowUpRightIcon className="size-5" />
           </a>
 
           <div className="mt-8 border-t border-line">
@@ -72,12 +73,7 @@ export default function Contact() {
                   </strong>
                 </span>
 
-                <span
-                  className="text-xl text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent"
-                  aria-hidden="true"
-                >
-                  ↗
-                </span>
+               <ArrowUpRightIcon className="size-5 text-muted transition group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent" />
               </a>
             ))}
           </div>

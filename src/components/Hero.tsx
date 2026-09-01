@@ -1,6 +1,7 @@
 import { motion, useReducedMotion } from "motion/react";
 import Starfield from "./Starfield";
 import TechConstellation from "./TechConstellation";
+import ArrowUpRightIcon from "./icons/ArrowUpRightIcon";
 
 const socialLinks = [
   {
@@ -95,7 +96,7 @@ export default function Hero() {
                 target="_blank"
                 rel="noreferrer"
               >
-                {link.label} ↗
+                <span>{link.label}</span><ArrowUpRightIcon className="size-4" />
               </a>
             </li>
           ))}
@@ -105,7 +106,7 @@ export default function Hero() {
               className="text-sm font-semibold text-muted no-underline transition hover:text-accent"
               href="mailto:hojunekim1202@gmail.com"
             >
-              Email ↗
+              <span>Email</span> <ArrowUpRightIcon className="size-4" />
             </a>
           </li>
         </ul>

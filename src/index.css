@@ -13,10 +13,8 @@
   --color-accent-light: #ff75a0;
 
   --font-sans:
+    "Inter Variable",
     "Inter",
-    "Noto Sans",
-    "Liberation Sans",
-    Arial,
     sans-serif;
 }
 
@@ -44,6 +42,8 @@
         transparent 30rem
       ),
       var(--color-page);
+    
+    font-family: var(--font-sans);
   }
 
   button,

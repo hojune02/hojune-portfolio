@@ -2,6 +2,7 @@ import { useEffect, useRef } from "react";
 import type { MouseEvent } from "react";
 import { motion, useReducedMotion } from "motion/react";
 import type { Project } from "../data/projects";
+import ArrowUpRightIcon from "./icons/ArrowUpRightIcon";
 
 type ProjectModalProps = {
   project: Project;
@@ -156,7 +157,8 @@ export default function ProjectModal({
                 target="_blank"
                 rel="noreferrer"
               >
-                View GitHub ↗
+                View GitHub
+                <ArrowUpRightIcon className="size-4" />
               </a>
             )}
 
@@ -167,7 +169,8 @@ export default function ProjectModal({
                 target="_blank"
                 rel="noreferrer"
               >
-                View live demo ↗
+                View live demo
+                <ArrowUpRightIcon className="size-4" />
               </a>
             )}
           </div>

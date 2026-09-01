@@ -1,4 +1,5 @@
 import type { Project } from "../data/projects";
+import ArrowUpRightIcon from "./icons/ArrowUpRightIcon";
 
 type ProjectCardProps = {
   project: Project;
@@ -97,7 +98,8 @@ export default function ProjectCard({
               target="_blank"
               rel="noreferrer"
             >
-              GitHub ↗
+              GitHub
+              <ArrowUpRightIcon className="size-4" />
             </a>
           )}
 
@@ -108,7 +110,8 @@ export default function ProjectCard({
               target="_blank"
               rel="noreferrer"
             >
-              Live demo ↗
+              Live demo 
+              <ArrowUpRightIcon className="size-4" />
             </a>
           )}
         </div>
