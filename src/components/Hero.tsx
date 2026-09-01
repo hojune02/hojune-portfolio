@@ -1,5 +1,4 @@
 import { motion, useReducedMotion } from "motion/react";
-import Starfield from "./Starfield";
 import TechConstellation from "./TechConstellation";
 import ArrowUpRightIcon from "./icons/ArrowUpRightIcon";
 
@@ -21,7 +20,6 @@ export default function Hero() {
       id="home"
       className="hero-layout relative mx-auto grid min-h-svh max-w-7xl scroll-mt-28 grid-cols-1 items-center gap-12 px-6 pt-36 pb-20 md:px-10 lg:grid-cols-[minmax(0,1.05fr)_minmax(360px,0.75fr)] lg:gap-20 lg:px-8 xl:px-0"
     >
-        <Starfield />
       <motion.div
         className="relative z-10 max-w-3xl"
         initial={
