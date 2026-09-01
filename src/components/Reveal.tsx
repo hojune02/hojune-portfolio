@@ -3,6 +3,7 @@ import type { ReactNode } from "react";
 
 type RevealProps = {
   children: ReactNode;
+  id?: string;
   className?: string;
   delay?: number;
   distance?: number;
@@ -10,6 +11,7 @@ type RevealProps = {
 
 export default function Reveal({
   children,
+  id,
   className,
   delay = 0,
   distance = 40,
@@ -18,6 +20,7 @@ export default function Reveal({
 
   return (
     <motion.div
+        id={id}
       className={className}
       initial={
         shouldReduceMotion

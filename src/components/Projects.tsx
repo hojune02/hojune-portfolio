@@ -12,10 +12,9 @@ export default function Projects() {
 
   return (
     <section
-      id="projects"
       className="min-h-screen scroll-mt-28 bg-white/[0.015] px-6 py-32 md:px-10 lg:px-8"
     >
-      <div className="mx-auto max-w-7xl">
+      <div id="projects" className="mx-auto max-w-7xl">
        <Reveal className="mb-14 max-w-4xl">
         <p className="text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
             Selected work

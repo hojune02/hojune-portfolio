@@ -16,10 +16,9 @@ const contactLinks = [
 export default function Contact() {
   return (
     <section
-      id="contact"
       className="flex min-h-[85vh] scroll-mt-28 items-center px-6 py-32 md:px-10 lg:px-8"
     >
-      <Reveal className="mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-[minmax(0,1.25fr)_minmax(360px,0.75fr)] lg:gap-24">
+      <Reveal     id="contact" className=" mx-auto grid w-full max-w-7xl grid-cols-1 items-center gap-16 lg:grid-cols-[minmax(0,1.25fr)_minmax(360px,0.75fr)] lg:gap-24">
         <div>
           <p className="text-xs font-extrabold tracking-[0.2em] text-accent uppercase">
             Contact
