@@ -24,9 +24,7 @@ export default function Reveal({
       className={className}
       initial={
         shouldReduceMotion
-          ? {
-            opacity: 0,
-          }
+          ? false
           : {
               opacity: 0,
               y: distance,
@@ -37,11 +35,11 @@ export default function Reveal({
         y: 0,
       }}
       viewport={{
-        once: false,
+        once: true,
         amount: 0.18,
       }}
       transition={{
-        duration: shouldReduceMotion ? 0.25 : 0.65,
+        duration: 0.65,
         delay,
         ease: "easeOut",
       }}
