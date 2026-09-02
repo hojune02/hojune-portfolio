@@ -12,7 +12,7 @@ export default function Projects() {
 
   return (
     <section
-      className="min-h-screen scroll-mt-28 bg-white/[0.015] px-6 py-32 md:px-10 lg:px-8"
+      className="min-h-screen scroll-mt-28 bg-white/1.5px-6 py-32 md:px-10 lg:px-8"
     >
       <div id="projects" className="mx-auto max-w-7xl">
        <Reveal className="mb-14 max-w-4xl">

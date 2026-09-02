@@ -44,7 +44,7 @@ export default function TechConstellation() {
 
   return (
     <div
-      className="relative aspect-[7/6] w-full max-w-140"
+      className="relative aspect-7/6 w-full max-w-140"
       aria-hidden="true"
     >
       <svg

@@ -14,7 +14,7 @@ export default function App() {
 <div className="relative min-h-screen overflow-x-clip bg-page">
       {/* Shared background */}
       <div
-        className="pointer-events-none fixed inset-0 z-0 overflow-hidden"
+        className="pointer-events-none fixed inset-10 z-0 overflow-hidden"
         aria-hidden="true"
       >
         <Starfield />

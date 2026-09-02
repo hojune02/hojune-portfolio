@@ -54,7 +54,7 @@ export default function Hero() {
           Kim<span className="text-accent">.</span>
         </h1>
 
-        <h2 className="mt-8 mb-5 max-w-2xl text-[clamp(1.35rem,2.2vw,2rem)] leading-[1.35] font-medium tracking-[-0.025em] text-copy">
+        <h2 className="mt-8 mb-5 max-w-2xl text-[clamp(1.35rem,2.2vw,2rem)] leading-[1.35] font-medium tracking-tight text-copy">
           Building across <strong className="text-white">AI</strong>,{" "}
           <strong className="text-white">systems</strong>, and{" "}
           <strong className="text-white">cybersecurity</strong>.

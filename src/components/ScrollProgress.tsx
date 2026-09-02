@@ -21,7 +21,7 @@ export default function ScrollProgress() {
 
   return (
     <motion.div
-      className="pointer-events-none fixed top-0 left-0 z-[250] h-[3px] w-full origin-left bg-accent"
+      className="pointer-events-none fixed top-0 left-0 z-250 h-0.75 w-full origin-left bg-accent"
       style={{
         scaleX: progress,
       }}

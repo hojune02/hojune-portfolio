@@ -85,26 +85,28 @@ export const projects: Project[] = [
   },
   {
     id: 4,
-    title: "Personal Dashboard",
+    title: "Dove",
     category: "Frontend Application",
     summary:
-      "A responsive browser dashboard featuring live weather information, task management, notes, and persistent local storage.",
+      "A Prayer Reminder web application that lets users schedule notifications for daily prayers and view prayer times based on their location.",
     technologies: [
       "HTML",
       "CSS",
       "JavaScript",
-      "REST API",
+      "React Native with Expo",
       "Local Storage",
     ],
     details: {
       problem:
-        "Users frequently switch between separate tools for weather information, tasks, and notes, even though these lightweight utilities can be combined in a single interface.",
+        "Users need a convenient way to manage their daily prayer schedules and access accurate prayer times based on their location.",
       solution:
-        "I created a responsive dashboard that retrieves weather data from an external API and lets users manage tasks and notes. Browser local storage preserves user-created data between sessions.",
+        "I created a Prayer Reminder web application that allows users to schedule notifications for daily prayers and view prayer times based on their location.",
       challenge:
-        "The project required coordinating asynchronous API requests, DOM updates, navigation between views, input validation, and persistent local state without using a frontend framework.",
+        "The project required integrating with RevenueCat API for subscription management, handling local storage for user preferences, and ensuring accurate notifications as set by the user",
     },
     github:
-      "https://github.com/hojune02/letphil_web_dev_foundation/tree/main/Level_2_Advanced_JavaScript/lvl-2-finalproject",
+      "https://github.com/hojune02/dove",
+    demo:
+      "https://www.youtube.com/shorts/FufcNgPuC_4"
   },
 ];

@@ -22,7 +22,7 @@ const facts = [
 export default function About() {
   return (
     <section
-      className="min-h-screen scroll-mt-28 bg-white/[0.015] px-6 py-32 md:px-10 lg:px-8"
+      className="min-h-screen scroll-mt-28 bg-white/1.5 px-6 py-32 md:px-10 lg:px-8"
     >
       <div id="about" className="mx-auto grid max-w-7xl grid-cols-1 items-start gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(400px,1.1fr)] lg:gap-24">
         <Reveal className="lg:sticky lg:top-36">
