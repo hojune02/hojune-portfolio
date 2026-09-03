@@ -84,6 +84,8 @@ export const projects: Project[] = [
       challenge:
         "The main challenge was coordinating image dimensions, aspect-ratio locking, transformations, compression settings, and asynchronous Canvas rendering while keeping previews responsive and correctly managing temporary browser object URLs.",
     },
+    github: "https://github.com/hojune02/imagefitlab",
+    deployed: "https://www.imagefitlab.com"
   },
   {
     id: 4,
