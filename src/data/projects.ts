@@ -1,3 +1,5 @@
+import imageImageFitLab from "../assets/projects/imagefitlab.png"
+
 export type ProjectDetails = {
   problem: string;
   solution: string;
@@ -84,6 +86,7 @@ export const projects: Project[] = [
       challenge:
         "The main challenge was coordinating image dimensions, aspect-ratio locking, transformations, compression settings, and asynchronous Canvas rendering while keeping previews responsive and correctly managing temporary browser object URLs.",
     },
+    image: imageImageFitLab,
     github: "https://github.com/hojune02/imagefitlab",
     deployed: "https://www.imagefitlab.com"
   },
