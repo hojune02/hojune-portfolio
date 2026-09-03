@@ -14,6 +14,7 @@ export type Project = {
   image?: string;
   github?: string;
   demo?: string;
+  deployed?: string;
 };
 
 export const projects: Project[] = [
@@ -64,23 +65,24 @@ export const projects: Project[] = [
   },
   {
     id: 3,
-    title: "Bluetooth Security Research",
-    category: "Security Research",
+    title: "ImageFitLab",
+    category: "Frontend Application",
     summary:
-      "Security experiments investigating Bluetooth implementation weaknesses across embedded systems and automotive environments.",
+      "Privacy-focused image editor that resizes, compresses, converts, rotates, and adjusts images entirely within the browser.",
     technologies: [
-      "Linux",
-      "Bluetooth",
-      "Embedded Systems",
-      "Security Testing",
+      "React",
+      "TypeScript",
+      "Vite",
+      "Canvas API",
+      "CSS",
     ],
     details: {
       problem:
-        "Bluetooth implementations vary across manufacturers, chipsets, protocol versions, and embedded environments, creating a broad and difficult-to-evaluate attack surface.",
+        "Many online image-editing tools require users to upload their files to a remote server, creating privacy concerns and unnecessary delays for simple tasks such as resizing, compression, and format conversion.",
       solution:
-        "I participated in structured security testing of Bluetooth implementations using known attack techniques and controlled test environments, with particular attention to embedded and automotive systems.",
+        "I built a responsive browser-based image editor that processes images locally using the Canvas API. Users can resize images, preserve aspect ratios, adjust brightness and contrast, rotate or flip images, convert between WebP, JPEG, and PNG, preview the result, and download the optimized file.",
       challenge:
-        "Reliable experiments required distinguishing genuine implementation weaknesses from pairing failures, hardware limitations, tool instability, and differences between Bluetooth protocol versions.",
+        "The main challenge was coordinating image dimensions, aspect-ratio locking, transformations, compression settings, and asynchronous Canvas rendering while keeping previews responsive and correctly managing temporary browser object URLs.",
     },
   },
   {

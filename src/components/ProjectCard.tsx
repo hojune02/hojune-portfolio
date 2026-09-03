@@ -114,6 +114,18 @@ export default function ProjectCard({
               <ArrowUpRightIcon className="size-4" />
             </a>
           )}
+
+          {project.deployed && (
+            <a
+              className="font-bold text-copy no-underline transition hover:text-accent"
+              href={project.deployed}
+              target="_blank"
+              rel="noreferrer"
+            >
+              Deployed Product 
+              <ArrowUpRightIcon className="size-4" />
+            </a>
+          )}
         </div>
       </div>
     </article>
